@@ -88,6 +88,40 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+            </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <artifactId>maven-archetype-plugin</artifactId>
+                    <version>3.1.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.2</version>
+                    <configuration>
+                        <tagBase>https://github.com/VittorioValent/j-rolamo-code-generator/tags</tagBase>
+                        <releaseProfiles>release</releaseProfiles>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
+    <scm>
+        <connection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</connection>
+        <developerConnection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
+    <developers>
+        <developer>
+            <name>Vittorio Valent</name>
+            <email>v.valent@contrader.it</email>
+            <organization>Contrader Srl</organization>
+            <organizationUrl>http://contrader.it</organizationUrl>
+        </developer>
+    </developers>
 </project>

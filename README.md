@@ -45,17 +45,12 @@ There are few advanced settings you can modify, for exemple if you change any pa
 Here's the list with the default values:
 
 **`jrolamo.codegenerator.package.domain`**`: domain`\
-**`jrolamo.codegenerator.package.domain-generic`**`: domain.generic`\
 **`jrolamo.codegenerator.package.dto`**`: dto`\
 **`jrolamo.codegenerator.package.filter`**`: filter`\
 **`jrolamo.codegenerator.package.repository`**`: repository`\
-**`jrolamo.codegenerator.package.repository-generic`**`: repository.generic`\
 **`jrolamo.codegenerator.package.mapper`**`: mapper`\
-**`jrolamo.codegenerator.package.mapper-generic:`**`: mapper.generic`\
 **`jrolamo.codegenerator.package.service`**` : service`\
-**`jrolamo.codegenerator.package.service-generic`**`: service.generic`\
 **`jrolamo.codegenerator.package.controller`**`: controller`\
-**`jrolamo.codegenerator.package.controller-generic`**`: controller.generic`
 
 Note that theese options concat themselves whith the basepackage: for exemple if your basepackege is <code>com.exemple</code>
 and the domain package is <code>model</code> your final result would be <code>com.exemple.domain</code>.

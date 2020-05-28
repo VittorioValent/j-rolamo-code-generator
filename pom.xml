@@ -120,6 +120,7 @@
     <scm>
         <url>https://github.com/VittorioValent/j-rolamo-code-generator</url>
         <connection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</connection>
+        <developerConnection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</developerConnection>
         <tag>HEAD</tag>
     </scm>
     <developers>

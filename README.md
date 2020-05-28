@@ -14,6 +14,13 @@ To be eable to use these two endpoint you should set the following properties in
 **`jrolamo.codegenerator.package.basepackage`**`: com.foo.bar`\
 **`jrolamo.codegenerator.endpoint-enabled`**`: true`
 
+and also set in the main application class these two annotations:
+```
+@EnableGenerics
+@EnableCodeGeneration
+
+```
+
 These properties should be set by default by the archetype, but if you wish to modify your package names, 
 just let J-Rolamo know!
 

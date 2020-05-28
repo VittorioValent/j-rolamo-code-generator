@@ -1,8 +1,10 @@
 package it.contrader.jrolamo.codegenerator.workshop.config;
 
+import it.contrader.jrolamo.codegenerator.workshop.JRolamoCodeGenerator;
 import it.contrader.jrolamo.codegenerator.workshop.utils.GeneratorUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.annotation.Order;
@@ -10,9 +12,11 @@ import org.springframework.core.annotation.Order;
 /**
  *
  * @author Vittorio Valent
+ * @since 0.0.1
  */
 @Slf4j
 @Configuration
+@ComponentScan(basePackageClasses = JRolamoCodeGenerator.class)
 @PropertySource("classpath:application.yml")
 public class PackageConfig {
 

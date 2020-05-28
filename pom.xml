@@ -19,7 +19,7 @@
     <properties>
         <java.version>1.8</java.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
-        <it.contrader.j-rolamo-generics.version>0.0.1</it.contrader.j-rolamo-generics.version>
+        <it.contrader.j-rolamo-generics.version>0.0.2</it.contrader.j-rolamo-generics.version>
     </properties>
 
     <dependencies>

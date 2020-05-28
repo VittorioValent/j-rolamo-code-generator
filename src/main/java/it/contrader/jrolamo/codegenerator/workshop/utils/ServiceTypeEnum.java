@@ -3,7 +3,7 @@ package it.contrader.jrolamo.codegenerator.workshop.utils;
 /**
  *
  * @author Vittorio Andreoni
- * @since 1.0
+ * @since 0.0.1
  */
 public enum ServiceTypeEnum {
 

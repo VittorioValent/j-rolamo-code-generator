@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author Vittorio Valent
- * @since 1.0
+ * @since 0.0.1
  *
  */
 public class ControllerGenerator {

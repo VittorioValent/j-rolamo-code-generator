@@ -1,23 +1,19 @@
 package it.contrader.jrolamo.codegenerator.workshop;
 
-import java.io.IOException;
-
-import javax.lang.model.element.Modifier;
-
-import org.mapstruct.Mapper;
-
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
 import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeSpec;
-
 import it.contrader.jrolamo.codegenerator.workshop.utils.GeneratorUtils;
+import java.io.IOException;
+import javax.lang.model.element.Modifier;
+import org.mapstruct.Mapper;
 
 /**
  * @author Vittorio Valent
- * @since 1.0
+ * @since 0.0.1
  *
  */
 public class MapperGenerator {

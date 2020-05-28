@@ -7,7 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author Vittorio Valent
- *
+ * @since 0.0.1
  */
 @Data
 @Builder

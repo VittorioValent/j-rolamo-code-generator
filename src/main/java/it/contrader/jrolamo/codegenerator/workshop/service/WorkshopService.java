@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 /**
  *
  * @author Vittorio Valent
+ * @since 0.0.1
  */
 @Service
 public class WorkshopService {

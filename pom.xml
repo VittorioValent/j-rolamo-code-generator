@@ -4,7 +4,7 @@
 
     <groupId>it.contrader</groupId>
     <artifactId>jrolamo-code-generator</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.4</version>
     <packaging>jar</packaging>
 
     <name>JrolamoCodeGenerator</name>
@@ -121,7 +121,7 @@
         <url>https://github.com/VittorioValent/j-rolamo-code-generator</url>
         <connection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</connection>
         <developerConnection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</developerConnection>
-        <tag>HEAD</tag>
+        <tag>jrolamo-code-generator-0.0.4</tag>
     </scm>
     <developers>
         <developer>

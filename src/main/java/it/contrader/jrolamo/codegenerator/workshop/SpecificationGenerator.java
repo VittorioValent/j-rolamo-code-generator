@@ -94,7 +94,7 @@ public class SpecificationGenerator {
                 .addMethod(toPredicate)
                 .addJavadoc(CodeBlock
                         .builder()
-                        .add("@author Automatic Code Generator")
+                        .add("@author JRolamo Code Generator")
                         .build())
                 .build();
 

@@ -33,7 +33,7 @@ public class MapperGenerator {
                         ClassName.get(GeneratorUtils.DTO_PACKAGE, entityName + "DTO")))
                 .addJavadoc(CodeBlock
                         .builder()
-                        .add("@author Automatic Code Generator")
+                        .add("@author JRolamo Code Generator")
                         .build())
                 .build();
 

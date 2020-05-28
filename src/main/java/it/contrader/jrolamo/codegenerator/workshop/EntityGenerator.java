@@ -42,10 +42,6 @@ public class EntityGenerator {
                         .build())
                 .build();
 
-        FieldSpec serialVersionUID = FieldSpec.builder(long.class, "serialVersionUID")
-                .addModifiers(Modifier.PRIVATE, Modifier.STATIC, Modifier.FINAL)
-                .initializer("$L", 1L)
-                .build();
         List<FieldSpec> fieldSpecs = new ArrayList<>();
 
         for (FieldInfo fieldInfo : fields) {
@@ -53,7 +49,7 @@ public class EntityGenerator {
                     .builder(GeneratorUtils.getFieldType(fieldInfo.getType(), ModelType.ENTITY), fieldInfo.getName())
                     .addModifiers(Modifier.PRIVATE)
                     .build();
-            if (GeneratorUtils.getMappedEntity(fieldInfo.getType(), ModelType.ENTITY) != null) {
+            if (GeneratorUtils.getMappedEntity(fieldInfo.getType(), ModelType.ENTITY)) {
                 fieldSpec = FieldSpec
                         .builder(GeneratorUtils.getFieldType(fieldInfo.getType(), ModelType.ENTITY), fieldInfo.getName())
                         .addModifiers(Modifier.PRIVATE)
@@ -74,12 +70,11 @@ public class EntityGenerator {
                         .addMember("callSuper", "$L", false)
                         .build())
                 .addField(id)
-                .addField(serialVersionUID)
                 .addFields(fieldSpecs)
                 .superclass(GeneratorUtils.getEntitySuperClass(auditable))
                 .addJavadoc(CodeBlock
                         .builder()
-                        .add("@author Automatic Code Generator")
+                        .add("@author JRolamo Code Generator")
                         .build())
                 .build();
 

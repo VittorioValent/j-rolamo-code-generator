@@ -3,6 +3,7 @@ package it.contrader.jrolamo.codegenerator.workshop.service;
 import it.contrader.jrolamo.codegenerator.workshop.utils.EntityInfo;
 import it.contrader.jrolamo.codegenerator.workshop.utils.FieldInfo;
 import it.contrader.jrolamo.codegenerator.workshop.utils.GeneratorUtils;
+import it.contrader.jrolamo.generics.domain.AbstractModel;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,8 +22,7 @@ public class WorkshopService {
     public List<EntityInfo> getAllEntities() throws ClassNotFoundException {
         Reflections entityReflection = new Reflections(GeneratorUtils.DOMAIN_PACKAGE);
 
-        Class abstractModel = Class.forName(GeneratorUtils.DOMAIN_GENERIC_PACKAGE + ".AbstractModel");
-        Set<Class<? extends Object>> entityClasses = entityReflection.getSubTypesOf(abstractModel);
+        Set<Class<? extends Object>> entityClasses = entityReflection.getSubTypesOf((Class) AbstractModel.class);
 
         List<EntityInfo> entityInfoList = new ArrayList<>();
         for (Class entityClass : entityClasses) {

@@ -1,6 +1,6 @@
 package it.contrader.jrolamo.codegenerator.workshop.controller;
 
-import it.contrader.jrolamo.codegenerator.workshop.CodeGenerator;
+import it.contrader.jrolamo.codegenerator.workshop.JRolamoCodeGenerator;
 import it.contrader.jrolamo.codegenerator.workshop.service.ApplicationService;
 import it.contrader.jrolamo.codegenerator.workshop.service.WorkshopService;
 import it.contrader.jrolamo.codegenerator.workshop.utils.EntityInfo;
@@ -34,7 +34,7 @@ public class WorkshopController {
 
     @PostMapping("/entityflow")
     public void generateEntityFlow(@RequestBody EntityInfo entityInfo) {
-        CodeGenerator.generateEntityFlow(entityInfo);
+        JRolamoCodeGenerator.generateEntityFlow(entityInfo);
         applicationService.restart();
     }
 

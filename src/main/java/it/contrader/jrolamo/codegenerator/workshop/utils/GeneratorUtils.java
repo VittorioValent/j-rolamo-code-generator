@@ -1,6 +1,22 @@
 package it.contrader.jrolamo.codegenerator.workshop.utils;
 
 import com.squareup.javapoet.JavaFile;
+import it.contrader.jrolamo.generics.controller.PrivateCrudController;
+import it.contrader.jrolamo.generics.controller.PrivateReadController;
+import it.contrader.jrolamo.generics.controller.ProtectedCrudController;
+import it.contrader.jrolamo.generics.controller.PublicCrudController;
+import it.contrader.jrolamo.generics.controller.PublicReadController;
+import it.contrader.jrolamo.generics.domain.AbstractDTO;
+import it.contrader.jrolamo.generics.domain.AbstractModel;
+import it.contrader.jrolamo.generics.domain.AuditDTO;
+import it.contrader.jrolamo.generics.domain.AuditModel;
+import it.contrader.jrolamo.generics.domain.EntitySpecification;
+import it.contrader.jrolamo.generics.mapper.IMapper;
+import it.contrader.jrolamo.generics.repositoy.IPrivateRepository;
+import it.contrader.jrolamo.generics.repositoy.IRepository;
+import it.contrader.jrolamo.generics.service.PrivateService;
+import it.contrader.jrolamo.generics.service.ProtectedService;
+import it.contrader.jrolamo.generics.service.PublicService;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -27,30 +43,20 @@ public class GeneratorUtils {
 
     public static String FILTER_PACKAGE;
 
-    public static String DOMAIN_GENERIC_PACKAGE;
-
     public static String REPOSITORY_PACKAGE;
-
-    public static String REPOSITORY_GENERIC_PACKAGE;
 
     public static String SERVICE_PACKAGE;
 
-    public static String SERVICE_GENERIC_PACKAGE;
-
     public static String MAPPER_PACKAGE;
 
-    public static String MAPPER_GENERIC_PACKAGE;
-
     public static String CONTROLLER_PACKAGE;
-
-    public static String CONTROLLER_GENERIC_PACKAGE;
 
     /**
      *
      * @return EntitySpecification Class.
      */
     public static Class getFilterSuperClass() {
-        return getClass(DOMAIN_GENERIC_PACKAGE, "EntitySpecification");
+        return EntitySpecification.class;
     }
 
     /**
@@ -60,9 +66,9 @@ public class GeneratorUtils {
      */
     public static Class getEntitySuperClass(Boolean auditable) {
         if (auditable) {
-            return getClass(DOMAIN_GENERIC_PACKAGE, "AuditModel");
+            return AuditModel.class;
         } else {
-            return getClass(DOMAIN_GENERIC_PACKAGE, "AbstractModel");
+            return AbstractModel.class;
         }
     }
 
@@ -74,9 +80,9 @@ public class GeneratorUtils {
      */
     public static Class getRepositorySuperInterface(ServiceTypeEnum serviceTypeEnum) {
         if (serviceTypeEnum.equals(ServiceTypeEnum.PRIVATE)) {
-            return getClass(REPOSITORY_GENERIC_PACKAGE, "IPrivateRepository");
+            return IPrivateRepository.class;
         } else {
-            return getClass(REPOSITORY_GENERIC_PACKAGE, "IRepository");
+            return IRepository.class;
         }
     }
 
@@ -87,9 +93,9 @@ public class GeneratorUtils {
      */
     public static Class getDTOSuperClass(Boolean auditable) {
         if (auditable) {
-            return getClass(DOMAIN_GENERIC_PACKAGE, "AuditDTO");
+            return AuditDTO.class;
         } else {
-            return getClass(DOMAIN_GENERIC_PACKAGE, "AbstractDTO");
+            return AbstractDTO.class;
         }
     }
 
@@ -98,7 +104,7 @@ public class GeneratorUtils {
      * @return IMapper interface.
      */
     public static Class getMapperSuperInterface() {
-        return getClass(MAPPER_GENERIC_PACKAGE, "IMapper");
+        return IMapper.class;
     }
 
     /**
@@ -110,11 +116,11 @@ public class GeneratorUtils {
     public static Class getServiceSuperClass(ServiceTypeEnum serviceType) {
         switch (serviceType) {
             case PUBLIC:
-                return getClass(SERVICE_GENERIC_PACKAGE, "PublicService");
+                return PublicService.class;
             case PROTECTED:
-                return getClass(SERVICE_GENERIC_PACKAGE, "ProtectedService");
+                return ProtectedService.class;
             case PRIVATE:
-                return getClass(SERVICE_GENERIC_PACKAGE, "PrivateService");
+                return PrivateService.class;
         }
         return null;
     }
@@ -133,30 +139,21 @@ public class GeneratorUtils {
                 switch (serviceType) {
                     case PUBLIC:
                     case PROTECTED:
-                        return getClass(CONTROLLER_GENERIC_PACKAGE, "PublicReadController");
+                        return PublicReadController.class;
                     case PRIVATE:
-                        return getClass(CONTROLLER_GENERIC_PACKAGE, "PrivateReadController");
+                        return PrivateReadController.class;
                 }
             case CRUD:
                 switch (serviceType) {
                     case PUBLIC:
-                        return getClass(CONTROLLER_GENERIC_PACKAGE, "PublicCrudController");
+                        return PublicCrudController.class;
                     case PROTECTED:
-                        return getClass(CONTROLLER_GENERIC_PACKAGE, "ProtectedCrudController");
+                        return ProtectedCrudController.class;
                     case PRIVATE:
-                        return getClass(CONTROLLER_GENERIC_PACKAGE, "PrivateCrudController");
+                        return PrivateCrudController.class;
                 }
         }
         return null;
-    }
-
-    private static Class getClass(String packageName, String className) {
-        try {
-            return Class.forName(packageName + "." + className);
-        } catch (ClassNotFoundException e) {
-            log.error("ClassNotFoundException", e);
-            return null;
-        }
     }
 
     public static Class getFieldType(String type, ModelType modelType) {
@@ -188,7 +185,7 @@ public class GeneratorUtils {
         try {
             clazz = Class.forName(location + "." + type + suffix);
         } catch (ClassNotFoundException e) {
-            log.error("Impossible to retrieve class from " + type + ", setting java.lang.String as type", e);
+            log.error("Impossible to retrieve class from " + type + suffix + ", setting java.lang.String as type", e);
         }
         return clazz;
     }

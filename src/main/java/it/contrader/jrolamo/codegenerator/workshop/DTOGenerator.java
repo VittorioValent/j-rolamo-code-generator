@@ -48,7 +48,7 @@ public class DTOGenerator {
                 .superclass(GeneratorUtils.getDTOSuperClass(auditable))
                 .addJavadoc(CodeBlock
                         .builder()
-                        .add("@author Automatic Code Generator")
+                        .add("@author JRolamo Code Generator")
                         .build())
                 .build();
 

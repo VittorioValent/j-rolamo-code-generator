@@ -30,7 +30,7 @@ public class RepositoryGenerator {
                         ClassName.get(GeneratorUtils.DOMAIN_PACKAGE, entityName)))
                 .addJavadoc(CodeBlock
                         .builder()
-                        .add("@author Automatic Code Generator")
+                        .add("@author JRolamo Code Generator")
                         .build())
                 .build();
 

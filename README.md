@@ -50,7 +50,7 @@ Here's the list with the default values:
 **`jrolamo.codegenerator.package.repository`**`: repository`\
 **`jrolamo.codegenerator.package.mapper`**`: mapper`\
 **`jrolamo.codegenerator.package.service`**` : service`\
-**`jrolamo.codegenerator.package.controller`**`: controller`\
+**`jrolamo.codegenerator.package.controller`**`: controller`
 
 Note that theese options concat themselves whith the basepackage: for exemple if your basepackege is <code>com.exemple</code>
 and the domain package is <code>model</code> your final result would be <code>com.exemple.domain</code>.

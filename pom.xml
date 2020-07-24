@@ -2,13 +2,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>it.contrader</groupId>
-    <artifactId>jrolamo-code-generator</artifactId>
+    <groupId>it.jrolamo</groupId>
+    <artifactId>j-rolamo-code-generator</artifactId>
     <version>0.0.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>JrolamoCodeGenerator</name>
-    <description>Basic project for Spring Boot</description>
+    <name>JRolamoCodeGenerator</name>
+    <description>JRolamo code generator library</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -19,8 +19,16 @@
     <properties>
         <java.version>1.8</java.version>
         <org.mapstruct.version>1.3.1.Final</org.mapstruct.version>
-        <it.contrader.j-rolamo-generics.version>0.0.2</it.contrader.j-rolamo-generics.version>
+        <it.jrolamo.j-rolamo-generics.version>0.0.4</it.jrolamo.j-rolamo-generics.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub VittorioValent Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/VittorioValent</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -29,9 +37,9 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>it.contrader</groupId>
-            <artifactId>jrolamo-generics</artifactId>
-            <version>${it.contrader.j-rolamo-generics.version}</version>
+            <groupId>it.jrolamo</groupId>
+            <artifactId>j-rolamo-generics</artifactId>
+            <version>${it.jrolamo.j-rolamo-generics.version}</version>
         </dependency>
         <dependency>
             <groupId>com.squareup</groupId>
@@ -117,12 +125,22 @@
             </plugins>
         </pluginManagement>
     </build>
+
     <scm>
         <url>https://github.com/VittorioValent/j-rolamo-code-generator</url>
         <connection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</connection>
         <developerConnection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub VittorioValent Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/VittorioValent/j-rolamo-code-generator</url>
+        </repository>
+    </distributionManagement>
+
     <developers>
         <developer>
             <name>Vittorio Valent</name>
@@ -131,4 +149,5 @@
             <organizationUrl>http://contrader.it</organizationUrl>
         </developer>
     </developers>
+
 </project>

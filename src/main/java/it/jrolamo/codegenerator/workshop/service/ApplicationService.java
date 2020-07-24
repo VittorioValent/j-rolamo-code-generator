@@ -1,4 +1,4 @@
-package it.contrader.jrolamo.codegenerator.workshop.service;
+package it.jrolamo.codegenerator.workshop.service;
 
 import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;

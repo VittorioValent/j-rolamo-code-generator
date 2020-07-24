@@ -1,7 +1,7 @@
-package it.contrader.jrolamo.codegenerator.workshop;
+package it.jrolamo.codegenerator.workshop;
 
-import it.contrader.jrolamo.codegenerator.workshop.utils.EntityInfo;
-import it.contrader.jrolamo.codegenerator.workshop.utils.ServiceTypeEnum;
+import it.jrolamo.codegenerator.workshop.utils.EntityInfo;
+import it.jrolamo.codegenerator.workshop.utils.ServiceTypeEnum;
 import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
 

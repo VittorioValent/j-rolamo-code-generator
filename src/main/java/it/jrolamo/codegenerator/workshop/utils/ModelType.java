@@ -1,4 +1,4 @@
-package it.contrader.jrolamo.codegenerator.workshop.utils;
+package it.jrolamo.codegenerator.workshop.utils;
 
 /**
  *
@@ -6,6 +6,5 @@ package it.contrader.jrolamo.codegenerator.workshop.utils;
  * @since 0.0.1
  */
 public enum ModelType {
-    ENTITY,
-    DTO;
+    ENTITY, DTO;
 }

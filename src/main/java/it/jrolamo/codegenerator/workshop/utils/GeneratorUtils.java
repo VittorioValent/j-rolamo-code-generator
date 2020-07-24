@@ -1,22 +1,22 @@
-package it.contrader.jrolamo.codegenerator.workshop.utils;
+package it.jrolamo.codegenerator.workshop.utils;
 
 import com.squareup.javapoet.JavaFile;
-import it.contrader.jrolamo.generics.controller.PrivateCrudController;
-import it.contrader.jrolamo.generics.controller.PrivateReadController;
-import it.contrader.jrolamo.generics.controller.ProtectedCrudController;
-import it.contrader.jrolamo.generics.controller.PublicCrudController;
-import it.contrader.jrolamo.generics.controller.PublicReadController;
-import it.contrader.jrolamo.generics.domain.AbstractDTO;
-import it.contrader.jrolamo.generics.domain.AbstractModel;
-import it.contrader.jrolamo.generics.domain.AuditDTO;
-import it.contrader.jrolamo.generics.domain.AuditModel;
-import it.contrader.jrolamo.generics.domain.EntitySpecification;
-import it.contrader.jrolamo.generics.mapper.IMapper;
-import it.contrader.jrolamo.generics.repositoy.IPrivateRepository;
-import it.contrader.jrolamo.generics.repositoy.IRepository;
-import it.contrader.jrolamo.generics.service.PrivateService;
-import it.contrader.jrolamo.generics.service.ProtectedService;
-import it.contrader.jrolamo.generics.service.PublicService;
+import it.jrolamo.generics.controller.PrivateCrudController;
+import it.jrolamo.generics.controller.PrivateReadController;
+import it.jrolamo.generics.controller.ProtectedCrudController;
+import it.jrolamo.generics.controller.PublicCrudController;
+import it.jrolamo.generics.controller.PublicReadController;
+import it.jrolamo.generics.domain.AbstractDTO;
+import it.jrolamo.generics.domain.AbstractModel;
+import it.jrolamo.generics.domain.AuditDTO;
+import it.jrolamo.generics.domain.AuditModel;
+import it.jrolamo.generics.domain.EntitySpecification;
+import it.jrolamo.generics.mapper.IMapper;
+import it.jrolamo.generics.repositoy.IPrivateRepository;
+import it.jrolamo.generics.repositoy.IRepository;
+import it.jrolamo.generics.service.PrivateService;
+import it.jrolamo.generics.service.ProtectedService;
+import it.jrolamo.generics.service.PublicService;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -75,8 +75,7 @@ public class GeneratorUtils {
     /**
      *
      * @param serviceTypeEnum
-     * @return IPrivateRepository if serviceTypeEnum is PRIVATE, else
-     * IRepository.
+     * @return IPrivateRepository if serviceTypeEnum is PRIVATE, else IRepository.
      */
     public static Class getRepositorySuperInterface(ServiceTypeEnum serviceTypeEnum) {
         if (serviceTypeEnum.equals(ServiceTypeEnum.PRIVATE)) {
@@ -111,7 +110,7 @@ public class GeneratorUtils {
      *
      * @param serviceType
      * @return PublicService if serviceType is PUBLIC, ProtectedService if
-     * serviceType is PROTECTED, PrivateService if serviceType is PRIVATE.
+     *         serviceType is PROTECTED, PrivateService if serviceType is PRIVATE.
      */
     public static Class getServiceSuperClass(ServiceTypeEnum serviceType) {
         switch (serviceType) {

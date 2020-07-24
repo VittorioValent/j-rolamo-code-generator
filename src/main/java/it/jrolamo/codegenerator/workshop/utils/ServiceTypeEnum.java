@@ -1,4 +1,4 @@
-package it.contrader.jrolamo.codegenerator.workshop.utils;
+package it.jrolamo.codegenerator.workshop.utils;
 
 /**
  *

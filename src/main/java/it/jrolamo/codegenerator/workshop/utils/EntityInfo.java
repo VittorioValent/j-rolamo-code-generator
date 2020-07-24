@@ -1,4 +1,4 @@
-package it.contrader.jrolamo.codegenerator.workshop.utils;
+package it.jrolamo.codegenerator.workshop.utils;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,7 @@ import lombok.Data;
 
 /**
  * @author Vittorio Valent
- *@since 0.0.1
+ * @since 0.0.1
  */
 @Data
 @Builder

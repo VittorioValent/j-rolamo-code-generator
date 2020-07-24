@@ -1,9 +1,9 @@
-package it.contrader.jrolamo.codegenerator.workshop.controller;
+package it.jrolamo.codegenerator.workshop.controller;
 
-import it.contrader.jrolamo.codegenerator.workshop.JRolamoCodeGenerator;
-import it.contrader.jrolamo.codegenerator.workshop.service.ApplicationService;
-import it.contrader.jrolamo.codegenerator.workshop.service.WorkshopService;
-import it.contrader.jrolamo.codegenerator.workshop.utils.EntityInfo;
+import it.jrolamo.codegenerator.workshop.JRolamoCodeGenerator;
+import it.jrolamo.codegenerator.workshop.service.ApplicationService;
+import it.jrolamo.codegenerator.workshop.service.WorkshopService;
+import it.jrolamo.codegenerator.workshop.utils.EntityInfo;
 import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

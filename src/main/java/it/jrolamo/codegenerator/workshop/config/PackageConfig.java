@@ -1,7 +1,7 @@
-package it.contrader.jrolamo.codegenerator.workshop.config;
+package it.jrolamo.codegenerator.workshop.config;
 
-import it.contrader.jrolamo.codegenerator.workshop.JRolamoCodeGenerator;
-import it.contrader.jrolamo.codegenerator.workshop.utils.GeneratorUtils;
+import it.jrolamo.codegenerator.workshop.JRolamoCodeGenerator;
+import it.jrolamo.codegenerator.workshop.utils.GeneratorUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;

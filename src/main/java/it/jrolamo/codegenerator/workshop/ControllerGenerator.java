@@ -1,4 +1,4 @@
-package it.contrader.jrolamo.codegenerator.workshop;
+package it.jrolamo.codegenerator.workshop;
 
 import com.squareup.javapoet.AnnotationSpec;
 import com.squareup.javapoet.ClassName;
@@ -8,9 +8,9 @@ import com.squareup.javapoet.MethodSpec;
 import com.squareup.javapoet.ParameterSpec;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeSpec;
-import it.contrader.jrolamo.codegenerator.workshop.utils.ControllerTypeEnum;
-import it.contrader.jrolamo.codegenerator.workshop.utils.GeneratorUtils;
-import it.contrader.jrolamo.codegenerator.workshop.utils.ServiceTypeEnum;
+import it.jrolamo.codegenerator.workshop.utils.ControllerTypeEnum;
+import it.jrolamo.codegenerator.workshop.utils.GeneratorUtils;
+import it.jrolamo.codegenerator.workshop.utils.ServiceTypeEnum;
 import java.io.IOException;
 import javax.lang.model.element.Modifier;
 import org.springframework.data.domain.Page;
@@ -39,60 +39,41 @@ public class ControllerGenerator {
                         .build())
                 .build();
         ParameterSpec pageSize = ParameterSpec.builder(Integer.class, "pageNumber")
-                .addAnnotation(AnnotationSpec.builder(RequestParam.class)
-                        .addMember("defaultValue", "$S", "0")
-                        .build())
+                .addAnnotation(AnnotationSpec.builder(RequestParam.class).addMember("defaultValue", "$S", "0").build())
                 .build();
         ParameterSpec pageNumber = ParameterSpec.builder(Integer.class, "pageSize")
-                .addAnnotation(AnnotationSpec.builder(RequestParam.class)
-                        .addMember("defaultValue", "$S", "20")
-                        .build())
+                .addAnnotation(AnnotationSpec.builder(RequestParam.class).addMember("defaultValue", "$S", "20").build())
                 .build();
         ParameterSpec direction = ParameterSpec.builder(Direction.class, "direction")
-                .addAnnotation(AnnotationSpec.builder(RequestParam.class)
-                        .addMember("defaultValue", "$S", "ASC")
-                        .build())
+                .addAnnotation(
+                        AnnotationSpec.builder(RequestParam.class).addMember("defaultValue", "$S", "ASC").build())
                 .build();
         ParameterSpec sortField = ParameterSpec.builder(String.class, "sortField")
-                .addAnnotation(AnnotationSpec.builder(RequestParam.class)
-                        .addMember("defaultValue", "$S", "id")
-                        .build())
+                .addAnnotation(AnnotationSpec.builder(RequestParam.class).addMember("defaultValue", "$S", "id").build())
                 .build();
 
-        MethodSpec getAll = MethodSpec.methodBuilder("getAll")
-                .addModifiers(Modifier.PUBLIC)
+        MethodSpec getAll = MethodSpec.methodBuilder("getAll").addModifiers(Modifier.PUBLIC)
                 .addAnnotation(Override.class)
                 .returns(ParameterizedTypeName.get(ClassName.get(Page.class),
                         ClassName.get(GeneratorUtils.DTO_PACKAGE, entityName + "DTO")))
-                .addParameter(predicate)
-                .addParameter(pageNumber)
-                .addParameter(pageSize)
-                .addParameter(direction)
+                .addParameter(predicate).addParameter(pageNumber).addParameter(pageSize).addParameter(direction)
                 .addParameter(sortField)
-                .addStatement(
-                        "return service.getAll(predicate, $T.of(pageNumber, pageSize, direction, sortField))",
+                .addStatement("return service.getAll(predicate, $T.of(pageNumber, pageSize, direction, sortField))",
                         PageRequest.class)
                 .build();
 
-        TypeSpec controllerClass = TypeSpec.classBuilder(entityName + "Controller")
-                .addModifiers(Modifier.PUBLIC)
-                .addAnnotation(RestController.class)
-                .addAnnotation(CrossOrigin.class)
+        TypeSpec controllerClass = TypeSpec.classBuilder(entityName + "Controller").addModifiers(Modifier.PUBLIC)
+                .addAnnotation(RestController.class).addAnnotation(CrossOrigin.class)
                 .addAnnotation(AnnotationSpec.builder(RequestMapping.class)
-                        .addMember("value", "$S", "/api/" + entityName.toLowerCase())
-                        .build())
-                .superclass(ParameterizedTypeName.get(ClassName.get(GeneratorUtils.getControllerSuperClass(controllerType, serviceType)),
+                        .addMember("value", "$S", "/api/" + entityName.toLowerCase()).build())
+                .superclass(ParameterizedTypeName.get(
+                        ClassName.get(GeneratorUtils.getControllerSuperClass(controllerType, serviceType)),
                         ClassName.get(GeneratorUtils.DTO_PACKAGE, entityName + "DTO")))
-                .addMethod(getAll)
-                .addJavadoc(CodeBlock
-                        .builder()
-                        .add("@author JRolamo Code Generator")
-                        .build())
+                .addMethod(getAll).addJavadoc(CodeBlock.builder().add("@author JRolamo Code Generator").build())
                 .build();
 
         JavaFile javaFile = JavaFile.builder(GeneratorUtils.CONTROLLER_PACKAGE, controllerClass)
-                .indent(GeneratorUtils.DEFAULT_INDENTATION)
-                .build();
+                .indent(GeneratorUtils.DEFAULT_INDENTATION).build();
 
         GeneratorUtils.save(javaFile);
     }

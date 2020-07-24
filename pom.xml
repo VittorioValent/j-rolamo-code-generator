@@ -4,7 +4,7 @@
 
     <groupId>it.jrolamo</groupId>
     <artifactId>j-rolamo-code-generator</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.0.5</version>
     <packaging>jar</packaging>
 
     <name>JRolamoCodeGenerator</name>
@@ -130,7 +130,7 @@
         <url>https://github.com/VittorioValent/j-rolamo-code-generator</url>
         <connection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</connection>
         <developerConnection>scm:git:https://github.com/VittorioValent/j-rolamo-code-generator</developerConnection>
-        <tag>HEAD</tag>
+        <tag>j-rolamo-code-generator-0.0.5</tag>
     </scm>
 
     <distributionManagement>
